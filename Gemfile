@@ -6,6 +6,13 @@ gem 'sqlite3'
 gem 'activerecord'
 gem 'sinatra-activerecord'
 
-group :development do
-        gem 'tux'
+group :production do
+  gem 'pg'
+  gem "dm-postgres-adapter"
+end
+
+group :development, :test do
+  gem 'sqlite3'
+  gem "dm-sqlite-adapter"
+  gem 'tux'
 end
