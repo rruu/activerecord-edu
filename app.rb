@@ -2,7 +2,6 @@
 require 'rubygems'
 require 'sinatra'
 require 'sinatra/reloader'
-require 'rake'
 require 'pg'
 require 'sinatra/activerecord'
 
