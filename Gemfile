@@ -6,6 +6,10 @@ gem 'sinatra-contrib'
 gem 'activerecord'
 gem 'sinatra-activerecord'
 gem 'rake'
+gem 'dm-core'
+gem 'dm-postgres-adapter'
+gem 'dm-migrations'
+
 
 group :production do
   gem 'pg'
