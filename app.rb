@@ -1,9 +1,7 @@
 #encoding: utf-8
-require 'rubygems'
 require 'sinatra'
-require 'sinatra/reloader'
-require 'pg'
 require 'sinatra/activerecord'
+#require './config/environment'
 
 set :database, 'sqlite3:barbershop.db'
 
