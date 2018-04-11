@@ -3,7 +3,7 @@ require 'sinatra'
 require 'sinatra/activerecord'
 #require './config/environment'
 
-set :database, 'sqlite3:barbershop.db'
+#set :database, 'sqlite3:barbershop.db'
 
 class Client < ActiveRecord::Base
 end

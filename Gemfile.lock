@@ -22,8 +22,6 @@ GEM
     multi_json (1.13.1)
     mustermann (1.0.2)
     pg (1.0.0)
-    postgresql (1.0.0)
-      pg
     rack (2.0.4)
     rack-protection (2.0.1)
       rack
@@ -69,7 +67,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
-  postgresql
+  pg
   rake
   sinatra
   sinatra-activerecord
