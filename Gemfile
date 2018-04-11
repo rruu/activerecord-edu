@@ -5,7 +5,7 @@ gem 'sinatra-contrib'
 #gem 'sqlite3'
 gem 'activerecord'
 gem 'sinatra-activerecord'
-gem 'bundle'
+gem 'rake'
 
 group :production do
   gem 'pg'
