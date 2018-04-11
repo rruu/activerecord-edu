@@ -1,2 +1,2 @@
-#bundle exec ruby web.rb
-web: bundle exec rackup config.ru
+bundle exec ruby web.rb
+#web: bundle exec rackup config.ru
