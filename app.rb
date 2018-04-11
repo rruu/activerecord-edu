@@ -3,6 +3,7 @@ require 'rubygems'
 require 'sinatra'
 require 'sinatra/reloader'
 require 'rake'
+require 'pg'
 require 'sinatra/activerecord'
 
 set :database, 'sqlite3:barbershop.db'
