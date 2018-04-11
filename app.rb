@@ -1,9 +1,9 @@
-#encoding: utf-8
+# Encoding: utf-8
 require 'sinatra'
 require 'sinatra/activerecord'
 
 # use without setup db in config/database.yml
-#set :database, 'sqlite3:barbershop.db'
+# set :database, 'sqlite3:barbershop.db'
 
 class Client < ActiveRecord::Base
 end
@@ -12,26 +12,26 @@ class Barber < ActiveRecord::Base
 end
 
 before do
-	@barbers = Barber.all
+  @barbers = Barber.all
 end
 
 get '/' do
-    @barbers = Barber.order "created_at desc"
-    erb :index
+  @barbers = Barber.all
+  erb :index
 end
 
 get '/visit' do
-    @datetimepicker = true
+  @datetimepicker = true
     erb :visit
 end
 
 post '/visit' do
-    @datetimepicker = true
-    c = Client.new params[:client]
-    if c.save
-        erb "<h2>OK</h2>"
-    else
-        @message = c.errors.full_messages.first
-    erb :visit
-    end
+  @datetimepicker = true
+  c = Client.new params[:client]
+  if c.save
+    erb "<h2>OK</h2>"
+  else
+    @message = c.errors.full_messages.first
+  erb :visit
+  end
 end
