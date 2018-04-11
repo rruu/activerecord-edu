@@ -49,8 +49,8 @@
                 </nav>
 			<div>
 
-			      <%if @message && @message.length > 0 then %>
-                      <br>
+                  <%if @message then %>
+                  <br>
 			          <div class="alert alert-<%=@type%>"><%=@message%></div>
 			      <% end %>
 			      <%= yield %>

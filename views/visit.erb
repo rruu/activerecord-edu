@@ -1,21 +1,16 @@
-<h2><%=@h1%></h2>
-
-    <%if @complete_to then %>
-         <div class="alert alert-primary" role="alert"><%=@complete_to%></div>
-    <% end %>
-
 <form action='/visit' method="POST">
 
     <div class="row">
         <div class="col">
         <label for="exampleInputPassword1">Вашем Имя</label>
-        <input required type="text" class="form-control" name="client[name]" oninvalid="this.setCustomValidity('Пожалуйста введите имя')" oninput="setCustomValidity('')" >
+        <input type="text" value="<%= @c.name %>" style="text-transform: capitalize;" class="form-control" name="client[name]">
+        <%# <input required type="text" class="form-control" name="client[name]" oninvalid="this.setCustomValidity('Пожалуйста введите имя')" oninput="setCustomValidity('')" > %>
         </div>
 
         <div class="col">
                 <label for="exampleInputPassword1">Дата записи</label>
                 <!-- <input required class="form-control" type="date" name="date"  oninvalid="this.setCustomValidity('Please Enter valid email')" oninput="setCustomValidity('')" > -->
-                <input required class="form-control form_datetime" name="client[datestamp]" readonly oninvalid="this.setCustomValidity('Укажите дату записи')" oninput="setCustomValidity('')" >
+                <input required class="form-control form_datetime" name="client[datestamp]" value="<%= @c.datestamp %>" readonly oninvalid="this.setCustomValidity('Укажите дату записи')" oninput="setCustomValidity('')" >
                 <!-- <div class="input-group date"> -->
             <%# </div> %>
         </div>
@@ -23,14 +18,24 @@
 <br>
     <div class="row">
         <div class="col">
-        <label for="exampleInputPassword1">Ваш телефон</label>
-        <!-- <input required="" type="text" class="form-control" placeholder="+7 xxx xxx-xx-xx" name="phone"  oninvalid="this.setCustomValidity('Please Enter valid email')" oninput="setCustomValidity('')" > -->
-        <input required="" name="client[phone]" type="text" class="form-control input-medium bfh-phone" data-format="+7 (ddd) ddd-dddd" oninvalid="this.setCustomValidity('Введите номер телефона')" oninput="setCustomValidity('')" >
-        
+
+
+<label for="exampleInputPassword1">Ваш телефон</label>
+  <div class="input-group mb-2 mr-sm-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">+7</div>
+    </div>
+   <input required="" name="client[phone]" value="<%= @c.phone %>" type="text" class="form-control input-medium bfh-phone" placeholder="9876543210" data-format="dddddddddd" oninvalid="this.setCustomValidity('Введите номер телефона')" oninput="setCustomValidity('')" >
+  </div>
+
+
         </div>
+        
+
+        
         <div class="col">
         <label for="exampleInputEmail1">Ваш e-mail</label>
-        <input required type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="вашеимя@maildomain.ru" name="client[email]"  oninvalid="this.setCustomValidity('Введите email')" oninput="setCustomValidity('')">
+        <input required type="email" value="<%= @c.email %>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="email@post.tld" name="client[email]" value="<%= @c.name %>" oninvalid="this.setCustomValidity('Введите email')" oninput="setCustomValidity('')">
         <small id="emailHelp" class="form-text text-muted">Мы не передаем ваш e-mail третьим лицам</small>
         </div>
     </div>
@@ -44,9 +49,15 @@
         <option>Jessie Pincman</option>
         <option>Gus Fring</option> -->
 
-    <% @barbers.each { |row|  %>  
-    <%= " <option>  #{row['name']} </option> "  %>
-    <% } %>
+    <%# <% @barbers.each { |row|  %>  
+ <%#   <%= " <option>  #{if row['name']} </option> "  %>
+  <%#  <% } %> 
+
+    <% @barbers.each do |row| %>
+    <%= if "#{row['name']}" == "#{@c.barber}" then "<option selected> #{row['name']} </option>" else  "<option> #{row['name']} </option>" end %>
+    <% end %>
+
+
 
 
     </select>
