@@ -1,8 +1,8 @@
 #encoding: utf-8
 require 'sinatra'
 require 'sinatra/activerecord'
-#require './config/environment'
 
+# use without setup db in config/database.yml
 #set :database, 'sqlite3:barbershop.db'
 
 class Client < ActiveRecord::Base
